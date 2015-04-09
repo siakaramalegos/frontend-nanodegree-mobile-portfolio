@@ -58,5 +58,6 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 - Changed google analytics js to asychronous (async)
 - Resized pizzeria.jpg photo to be the maximum width it is ever shown on screen - 540px.
+- Flagged media style as print in call to print.css stylesheet
 
 
