@@ -2,14 +2,33 @@ module.exports = function(grunt){
 
     // Configuration goes here
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json')
+        pkg: grunt.file.readJSON('package.json'),
 
         // Concatenate files configuration
         concat: {
-          // code here
-        }
+            build: {
+                src: [
+                    'views/css/bootstrap-grid.css',
+                    'views/css/style.css'
+                ],
+                dest: 'views/css/concat.css'
+            }
+        },
 
         // Minify files configuration
+        uglify: {
+            build: {
+                src: 'js/perfmatters.js',
+                dest: 'js/production.min.js'
+            }
+        },
+
+        minify: {
+            build: {
+                src: 'views/css/concat.css',
+                dest: 'views/css/production.css'
+            }
+        }
     });
 
     // Concatenate files
@@ -21,6 +40,7 @@ module.exports = function(grunt){
     // Minify JS
     grunt.loadNpmTasks('grunt-contrib-uglify')
 
-    grunt.registerTask('default', ['concat'] );
+    // TODO: add CSS minify
+    grunt.registerTask('default', ['concat', 'uglify'] );
 
 };
